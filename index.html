@@ -45,13 +45,13 @@
 
     .astronaut {
       position: absolute;
-      width: 300px;  /* ලොකු කළා - 200px ඉඳන් 300px දක්වා */
+      width: 400px;  /* 400px කළා! */
       height: auto;
-      left: 5%;
-      top: 15%;
+      left: 3%;
+      top: 10%;
       z-index: 10;
-      filter: drop-shadow(0 0 30px rgba(100, 200, 255, 0.7)) 
-              drop-shadow(0 0 60px rgba(150, 220, 255, 0.4));
+      filter: drop-shadow(0 0 40px rgba(100, 200, 255, 0.8)) 
+              drop-shadow(0 0 80px rgba(150, 220, 255, 0.5));
       animation: floatAstronaut 8s ease-in-out infinite;
     }
 
@@ -78,7 +78,7 @@
       border: 2px solid rgba(100, 200, 255, 0.4);
       border-radius: 20px;
       padding: 40px;
-      max-width: 500px;
+      max-width: 550px;
       box-shadow: 
         0 8px 32px rgba(0, 100, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -99,15 +99,25 @@
     .title {
       text-align: center;
       color: #64c8ff;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       margin-bottom: 30px;
-      text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+      text-shadow: 0 0 15px rgba(100, 200, 255, 0.7);
       letter-spacing: 1px;
     }
 
     .form-group {
       margin-bottom: 20px;
+    }
+
+    .date-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .date-field {
+      flex: 1;
     }
 
     label {
@@ -119,128 +129,133 @@
       letter-spacing: 0.5px;
     }
 
-    input {
+    input, select {
       width: 100%;
-      padding: 12px 15px;
-      border: 1.5px solid rgba(100, 200, 255, 0.3);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
+      padding: 14px 16px;
+      border: 2px solid rgba(100, 200, 255, 0.4);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
       color: #fff;
-      font-size: 14px;
+      font-size: 15px;
       transition: all 0.3s ease;
       font-family: inherit;
     }
 
-    input:hover {
-      border-color: rgba(100, 200, 255, 0.5);
-      background: rgba(255, 255, 255, 0.08);
+    input:hover, select:hover {
+      border-color: rgba(100, 200, 255, 0.7);
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    input:focus {
+    input:focus, select:focus {
       outline: none;
-      border-color: rgba(100, 200, 255, 0.8);
+      border-color: rgba(100, 200, 255, 1);
       box-shadow: 
-        0 0 10px rgba(100, 200, 255, 0.2),
-        inset 0 0 8px rgba(100, 200, 255, 0.1);
-      background: rgba(255, 255, 255, 0.1);
+        0 0 15px rgba(100, 200, 255, 0.4),
+        inset 0 0 10px rgba(100, 200, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    select option {
+      background: #1a1f3a;
+      color: #fff;
     }
 
     .button {
       width: 100%;
-      padding: 14px;
+      padding: 18px;  /* ලොකු කළා! */
       background: linear-gradient(135deg, #64c8ff 0%, #4a9fff 100%);
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       color: #0a0e27;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;  /* ලොකු කළා! */
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-top: 20px;
-      box-shadow: 0 4px 15px rgba(100, 200, 255, 0.3);
-      letter-spacing: 0.5px;
+      margin-top: 25px;
+      box-shadow: 0 6px 20px rgba(100, 200, 255, 0.4);
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(100, 200, 255, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(100, 200, 255, 0.6);
     }
 
     .button:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 10px rgba(100, 200, 255, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(100, 200, 255, 0.4);
     }
 
     .result-section {
       margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(100, 200, 255, 0.2);
+      padding-top: 25px;
+      border-top: 2px solid rgba(100, 200, 255, 0.3);
       animation: slideUp 0.5s ease-out;
     }
 
     .result-label {
       color: #a8d5ff;
-      font-size: 12px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-weight: 600;
     }
 
     .security-key {
-      background: rgba(20, 30, 60, 0.8);
-      border: 1.5px solid rgba(100, 200, 255, 0.5);
-      padding: 16px;
-      border-radius: 8px;
+      background: rgba(20, 30, 60, 0.9);
+      border: 2px solid rgba(100, 200, 255, 0.6);
+      padding: 20px;
+      border-radius: 10px;
       color: #64ff64;
       font-family: 'Courier New', monospace;
-      font-size: 16px;
+      font-size: 18px;
       word-break: break-all;
       text-align: center;
       font-weight: bold;
-      min-height: 50px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 
-        0 0 10px rgba(100, 255, 100, 0.2),
-        inset 0 0 8px rgba(100, 255, 100, 0.05);
-      letter-spacing: 1px;
+        0 0 20px rgba(100, 255, 100, 0.3),
+        inset 0 0 12px rgba(100, 255, 100, 0.1);
+      letter-spacing: 1.5px;
       user-select: all;
     }
 
     .copy-btn {
       width: 100%;
-      margin-top: 12px;
-      padding: 10px;
-      background: rgba(100, 200, 255, 0.2);
-      border: 1px solid rgba(100, 200, 255, 0.4);
+      margin-top: 15px;
+      padding: 12px;
+      background: rgba(100, 200, 255, 0.25);
+      border: 2px solid rgba(100, 200, 255, 0.5);
       color: #64c8ff;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 14px;
       transition: all 0.3s ease;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .copy-btn:hover {
-      background: rgba(100, 200, 255, 0.3);
-      border-color: rgba(100, 200, 255, 0.6);
-      box-shadow: 0 0 8px rgba(100, 200, 255, 0.2);
+      background: rgba(100, 200, 255, 0.35);
+      border-color: rgba(100, 200, 255, 0.8);
+      box-shadow: 0 0 12px rgba(100, 200, 255, 0.3);
     }
 
     @media (max-width: 768px) {
       .astronaut {
-        width: 200px;
-        left: 2%;
-        top: 8%;
+        width: 250px;
+        left: 1%;
+        top: 5%;
       }
       
       .content {
@@ -248,15 +263,25 @@
       }
 
       .title {
-        font-size: 24px;
+        font-size: 26px;
+      }
+
+      .date-group {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .button {
+        padding: 16px;
+        font-size: 16px;
       }
     }
 
     @media (max-width: 480px) {
       .astronaut {
-        width: 150px;
-        left: 1%;
-        top: 5%;
+        width: 180px;
+        left: 0%;
+        top: 3%;
       }
       
       .content {
@@ -264,7 +289,7 @@
       }
 
       .title {
-        font-size: 20px;
+        font-size: 22px;
       }
     }
   </style>
@@ -276,17 +301,47 @@
   <img src="astronaut.png" alt="Floating Astronaut" class="astronaut">
 
   <div class="content">
-    <div class="title">Galactic Security Key</div>
+    <div class="title">🚀 Galactic Security Key</div>
     
     <form id="keyForm">
       <div class="form-group">
-        <label for="name">Enter your name</label>
+        <label for="name">Enter your full name</label>
         <input type="text" id="name" placeholder="Your name" required>
       </div>
       
       <div class="form-group">
-        <label for="birthYear">Enter birth year (e.g., 1990)</label>
-        <input type="number" id="birthYear" placeholder="Birth year" min="1900" max="2024" required>
+        <label>Date of Birth</label>
+        <div class="date-group">
+          <div class="date-field">
+            <select id="day" required>
+              <option value="">Day</option>
+              ${Array.from({length: 31}, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
+            </select>
+          </div>
+          <div class="date-field">
+            <select id="month" required>
+              <option value="">Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+          <div class="date-field">
+            <select id="year" required>
+              <option value="">Year</option>
+              ${Array.from({length: 100}, (_, i) => `<option value="${2024 - i}">${2024 - i}</option>`).join('')}
+            </select>
+          </div>
+        </div>
       </div>
       
       <button type="submit" class="button">Generate Secure Key</button>
@@ -301,68 +356,89 @@
 </div>
 
 <script>
+// Generate date options
+const daySelect = document.getElementById('day');
+const monthSelect = document.getElementById('month');
+const yearSelect = document.getElementById('year');
+
+for (let i = 1; i <= 31; i++) {
+  const option = document.createElement('option');
+  option.value = i;
+  option.textContent = i;
+  daySelect.appendChild(option);
+}
+
+for (let i = 2024; i >= 1920; i--) {
+  const option = document.createElement('option');
+  option.value = i;
+  option.textContent = i;
+  yearSelect.appendChild(option);
+}
+
+// Canvas setup
 const canvas = document.getElementById('spaceCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Star class - වැඩියෙන් shine වෙන්න
+// Colorful Star class - වර්ණවත් තරු!
 class Star {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 2 + 0.5;  // තරමක් ලොකු ප්‍රමාණ
-    this.baseOpacity = Math.random() * 0.5 + 0.5;  // වැඩි brightness
+    this.radius = Math.random() * 3 + 1.5;  // ලොකු තරු!
+    this.baseOpacity = Math.random() * 0.6 + 0.4;
     this.opacity = this.baseOpacity;
-    this.twinkleSpeed = Math.random() * 0.05 + 0.02;  // වේගවත් twinkle
-    this.color = this.getRandomStarColor();  // වර්ණවත් තරු
+    this.twinkleSpeed = Math.random() * 0.04 + 0.02;
+    this.color = this.getRandomColor();
   }
 
-  getRandomStarColor() {
+  getRandomColor() {
     const colors = [
       { r: 255, g: 255, b: 255 },  // සුදු
-      { r: 200, g: 220, b: 255 },  // නිල්
       { r: 255, g: 240, b: 200 },  // කහ
-      { r: 255, g: 200, b: 200 },  // රතු පැහැ
-      { r: 200, g: 255, b: 255 }   // cyan
+      { r: 200, g: 220, b: 255 },  // නිල්
+      { r: 255, g: 200, b: 200 },  // රෝස
+      { r: 200, g: 255, b: 255 },  // cyan
+      { r: 255, g: 220, b: 150 },  // තැඹිලි
+      { r: 220, g: 200, b: 255 },  // දම්
     ];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
   draw() {
-    // තවත් shine effect එකක්
+    // තවත් ලොකු glow එකක්
     const gradient = ctx.createRadialGradient(
       this.x, this.y, 0,
-      this.x, this.y, this.radius * 2
+      this.x, this.y, this.radius * 3
     );
     
     gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`);
-    gradient.addColorStop(0.5, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.5})`);
+    gradient.addColorStop(0.3, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.6})`);
+    gradient.addColorStop(0.7, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.2})`);
     gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
 
     ctx.fillStyle = gradient;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
     ctx.fill();
 
     // මැද තියෙන දීප්තිමත් කොටස
-    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity + 0.2})`;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius * 0.5, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, this.radius * 0.6, 0, Math.PI * 2);
     ctx.fill();
   }
 
   update() {
-    // වේගවත් හා වැඩි twinkle effect
     this.opacity = this.baseOpacity + Math.sin(Date.now() * this.twinkleSpeed) * 0.4;
-    
     if (this.opacity < 0.3) this.opacity = 0.3;
     if (this.opacity > 1) this.opacity = 1;
   }
 }
 
-// Shooting star class - තවත් අලුත් effect එකක්
+// Shooting star
 class ShootingStar {
   constructor() {
     this.reset();
@@ -371,12 +447,12 @@ class ShootingStar {
   reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height * 0.5;
-    this.length = Math.random() * 80 + 20;
-    this.speed = Math.random() * 10 + 5;
+    this.length = Math.random() * 100 + 30;
+    this.speed = Math.random() * 12 + 6;
     this.angle = Math.random() * Math.PI * 0.5 + Math.PI * 0.25;
     this.opacity = 0;
     this.active = false;
-    this.waitTime = Math.random() * 200 + 100;
+    this.waitTime = Math.random() * 300 + 150;
   }
 
   update() {
@@ -389,7 +465,7 @@ class ShootingStar {
     } else {
       this.x += Math.cos(this.angle) * this.speed;
       this.y += Math.sin(this.angle) * this.speed;
-      this.opacity -= 0.02;
+      this.opacity -= 0.015;
 
       if (this.opacity <= 0 || this.x > canvas.width || this.y > canvas.height) {
         this.reset();
@@ -408,7 +484,7 @@ class ShootingStar {
     gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
 
     ctx.strokeStyle = gradient;
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(endX, endY);
@@ -420,8 +496,8 @@ class Nebula {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 200 + 150;
-    this.opacity = Math.random() * 0.3 + 0.1;
+    this.size = Math.random() * 250 + 200;
+    this.opacity = Math.random() * 0.35 + 0.15;
     this.drift = Math.random() * 0.3 - 0.15;
   }
 
@@ -431,7 +507,7 @@ class Nebula {
       this.x, this.y, this.size
     );
     gradient.addColorStop(0, `rgba(255, 100, 200, ${this.opacity})`);
-    gradient.addColorStop(0.5, `rgba(100, 200, 255, ${this.opacity * 0.5})`);
+    gradient.addColorStop(0.5, `rgba(100, 200, 255, ${this.opacity * 0.6})`);
     gradient.addColorStop(1, `rgba(0, 100, 255, 0)`);
 
     ctx.fillStyle = gradient;
@@ -447,9 +523,9 @@ class Nebula {
   }
 }
 
-const stars = Array(300).fill().map(() => new Star());  // තරු ගාණ වැඩි කළා
-const nebulas = Array(5).fill().map(() => new Nebula());
-const shootingStars = Array(3).fill().map(() => new ShootingStar());
+const stars = Array(350).fill().map(() => new Star());  // තවත් තරු!
+const nebulas = Array(6).fill().map(() => new Nebula());
+const shootingStars = Array(4).fill().map(() => new ShootingStar());
 
 function animateSpace() {
   ctx.fillStyle = '#0a0e27';
@@ -480,10 +556,10 @@ window.addEventListener('resize', () => {
   canvas.height = window.innerHeight;
 });
 
-// Security Key Generation
-function generateSecurityKey(name, birthYear) {
+// Security Key Generation - දැන් day, month, year එකට!
+function generateSecurityKey(name, day, month, year) {
   let hash = 0;
-  const str = name + birthYear;
+  const str = name + day + month + year;
 
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
@@ -495,7 +571,7 @@ function generateSecurityKey(name, birthYear) {
   let key = '';
   let temp = Math.abs(hash);
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 24; i++) {  // තවත් අකුරු!
     key += chars[temp % chars.length];
     temp = Math.floor(temp / chars.length);
   }
@@ -506,7 +582,9 @@ function generateSecurityKey(name, birthYear) {
 // Form Handling
 const keyForm = document.getElementById('keyForm');
 const nameInput = document.getElementById('name');
-const birthYearInput = document.getElementById('birthYear');
+const dayInput = document.getElementById('day');
+const monthInput = document.getElementById('month');
+const yearInput = document.getElementById('year');
 const securityKeyDisplay = document.getElementById('securityKey');
 const resultSection = document.getElementById('resultSection');
 const copyBtn = document.getElementById('copyBtn');
@@ -515,14 +593,16 @@ keyForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const name = nameInput.value.trim();
-  const birthYear = birthYearInput.value;
+  const day = dayInput.value;
+  const month = monthInput.value;
+  const year = yearInput.value;
 
-  if (!name || !birthYear) {
+  if (!name || !day || !month || !year) {
     alert('Please fill in all fields');
     return;
   }
 
-  const key = generateSecurityKey(name, birthYear);
+  const key = generateSecurityKey(name, day, month, year);
   securityKeyDisplay.textContent = key;
   resultSection.style.display = 'block';
   resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
