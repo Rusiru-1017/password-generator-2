@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Galactic Security Key Generator - Create deterministic security keys with beautiful animations">
-  <meta name="keywords" content="password generator, security key, hash generator, animated UI">
-  <meta name="author" content="Rusiru-1017">
+  <meta name="description" content="Galactic Security Key Generator">
   <title>Galactic Security Key Generator</title>
   
   <style>
@@ -47,27 +45,28 @@
 
     .astronaut {
       position: absolute;
-      width: 200px;
+      width: 300px;  /* ලොකු කළා - 200px ඉඳන් 300px දක්වා */
       height: auto;
-      left: 10%;
-      top: 20%;
+      left: 5%;
+      top: 15%;
       z-index: 10;
-      filter: drop-shadow(0 0 20px rgba(100, 200, 255, 0.5));
-      animation: floatAstronaut 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(100, 200, 255, 0.7)) 
+              drop-shadow(0 0 60px rgba(150, 220, 255, 0.4));
+      animation: floatAstronaut 8s ease-in-out infinite;
     }
 
     @keyframes floatAstronaut {
       0%, 100% {
-        transform: translateY(0px) rotate(0deg);
+        transform: translateY(0px) rotate(0deg) translateX(0px);
       }
       25% {
-        transform: translateY(-20px) rotate(2deg);
+        transform: translateY(-30px) rotate(3deg) translateX(10px);
       }
       50% {
-        transform: translateY(-10px) rotate(0deg);
+        transform: translateY(-15px) rotate(0deg) translateX(0px);
       }
       75% {
-        transform: translateY(-30px) rotate(-2deg);
+        transform: translateY(-45px) rotate(-3deg) translateX(-10px);
       }
     }
 
@@ -150,13 +149,6 @@
       color: rgba(255, 255, 255, 0.4);
     }
 
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus {
-      -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset;
-      -webkit-text-fill-color: #fff;
-    }
-
     .button {
       width: 100%;
       padding: 14px;
@@ -182,12 +174,6 @@
     .button:active {
       transform: translateY(0);
       box-shadow: 0 2px 10px rgba(100, 200, 255, 0.3);
-    }
-
-    .button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
     }
 
     .result-section {
@@ -250,113 +236,35 @@
       box-shadow: 0 0 8px rgba(100, 200, 255, 0.2);
     }
 
-    .copy-btn:active {
-      transform: scale(0.98);
-    }
-
-    .copy-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
     @media (max-width: 768px) {
+      .astronaut {
+        width: 200px;
+        left: 2%;
+        top: 8%;
+      }
+      
       .content {
         padding: 30px 20px;
-        border-radius: 15px;
-        max-width: 100%;
       }
 
       .title {
         font-size: 24px;
-        margin-bottom: 25px;
-      }
-
-      input,
-      .button,
-      .copy-btn {
-        font-size: 14px;
-      }
-
-      .astronaut {
-        width: 120px;
-        left: 5%;
-        top: 10%;
       }
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: 15px;
+      .astronaut {
+        width: 150px;
+        left: 1%;
+        top: 5%;
       }
-
+      
       .content {
         padding: 25px 15px;
-        border-radius: 12px;
       }
 
       .title {
         font-size: 20px;
-        margin-bottom: 20px;
-      }
-
-      .form-group {
-        margin-bottom: 15px;
-      }
-
-      label {
-        font-size: 13px;
-      }
-
-      input {
-        padding: 10px 12px;
-        font-size: 14px;
-      }
-
-      .button {
-        padding: 12px;
-        font-size: 14px;
-        margin-top: 15px;
-      }
-
-      .result-section {
-        margin-top: 20px;
-        padding-top: 15px;
-      }
-
-      .security-key {
-        font-size: 14px;
-        padding: 12px;
-      }
-
-      .astronaut {
-        width: 100px;
-        left: 2%;
-        top: 5%;
-      }
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(100, 200, 255, 0.1);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(100, 200, 255, 0.3);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(100, 200, 255, 0.5);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -365,8 +273,6 @@
 
 <div class="container">
   <canvas id="spaceCanvas"></canvas>
-  
-  <!-- Astronaut Image -->
   <img src="astronaut.png" alt="Floating Astronaut" class="astronaut">
 
   <div class="content">
@@ -375,33 +281,19 @@
     <form id="keyForm">
       <div class="form-group">
         <label for="name">Enter your name</label>
-        <input 
-          type="text" 
-          id="name" 
-          placeholder="Your name" 
-          required
-          aria-label="Your name"
-        >
+        <input type="text" id="name" placeholder="Your name" required>
       </div>
       
       <div class="form-group">
         <label for="birthYear">Enter birth year (e.g., 1990)</label>
-        <input 
-          type="number" 
-          id="birthYear" 
-          placeholder="Birth year" 
-          min="1900" 
-          max="2024" 
-          required
-          aria-label="Your birth year"
-        >
+        <input type="number" id="birthYear" placeholder="Birth year" min="1900" max="2024" required>
       </div>
       
       <button type="submit" class="button">Generate Secure Key</button>
       
       <div class="result-section" id="resultSection" style="display: none;">
         <div class="result-label">Your Security Key</div>
-        <div class="security-key" id="securityKey" aria-live="polite">-</div>
+        <div class="security-key" id="securityKey">-</div>
         <button type="button" class="copy-btn" id="copyBtn">Copy to Clipboard</button>
       </div>
     </form>
@@ -409,37 +301,118 @@
 </div>
 
 <script>
-// ============================================
-// SPACE BACKGROUND ANIMATION
-// ============================================
-
 const canvas = document.getElementById('spaceCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// Star class - වැඩියෙන් shine වෙන්න
 class Star {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 1.5;
-    this.opacity = Math.random() * 0.8 + 0.2;
-    this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+    this.radius = Math.random() * 2 + 0.5;  // තරමක් ලොකු ප්‍රමාණ
+    this.baseOpacity = Math.random() * 0.5 + 0.5;  // වැඩි brightness
+    this.opacity = this.baseOpacity;
+    this.twinkleSpeed = Math.random() * 0.05 + 0.02;  // වේගවත් twinkle
+    this.color = this.getRandomStarColor();  // වර්ණවත් තරු
+  }
+
+  getRandomStarColor() {
+    const colors = [
+      { r: 255, g: 255, b: 255 },  // සුදු
+      { r: 200, g: 220, b: 255 },  // නිල්
+      { r: 255, g: 240, b: 200 },  // කහ
+      { r: 255, g: 200, b: 200 },  // රතු පැහැ
+      { r: 200, g: 255, b: 255 }   // cyan
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
   }
 
   draw() {
-    ctx.fillStyle = `rgba(200, 220, 255, ${this.opacity})`;
+    // තවත් shine effect එකක්
+    const gradient = ctx.createRadialGradient(
+      this.x, this.y, 0,
+      this.x, this.y, this.radius * 2
+    );
+    
+    gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`);
+    gradient.addColorStop(0.5, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity * 0.5})`);
+    gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
+
+    ctx.fillStyle = gradient;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // මැද තියෙන දීප්තිමත් කොටස
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius * 0.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
   update() {
-    this.opacity += this.twinkleSpeed;
-    if (this.opacity > 1 || this.opacity < 0.2) {
-      this.twinkleSpeed *= -1;
+    // වේගවත් හා වැඩි twinkle effect
+    this.opacity = this.baseOpacity + Math.sin(Date.now() * this.twinkleSpeed) * 0.4;
+    
+    if (this.opacity < 0.3) this.opacity = 0.3;
+    if (this.opacity > 1) this.opacity = 1;
+  }
+}
+
+// Shooting star class - තවත් අලුත් effect එකක්
+class ShootingStar {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height * 0.5;
+    this.length = Math.random() * 80 + 20;
+    this.speed = Math.random() * 10 + 5;
+    this.angle = Math.random() * Math.PI * 0.5 + Math.PI * 0.25;
+    this.opacity = 0;
+    this.active = false;
+    this.waitTime = Math.random() * 200 + 100;
+  }
+
+  update() {
+    if (!this.active) {
+      this.waitTime--;
+      if (this.waitTime <= 0) {
+        this.active = true;
+        this.opacity = 1;
+      }
+    } else {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      this.opacity -= 0.02;
+
+      if (this.opacity <= 0 || this.x > canvas.width || this.y > canvas.height) {
+        this.reset();
+      }
     }
+  }
+
+  draw() {
+    if (!this.active) return;
+
+    const endX = this.x - Math.cos(this.angle) * this.length;
+    const endY = this.y - Math.sin(this.angle) * this.length;
+
+    const gradient = ctx.createLinearGradient(this.x, this.y, endX, endY);
+    gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+    gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(endX, endY);
+    ctx.stroke();
   }
 }
 
@@ -447,9 +420,9 @@ class Nebula {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 150 + 100;
-    this.opacity = Math.random() * 0.3 + 0.05;
-    this.drift = Math.random() * 0.2 - 0.1;
+    this.size = Math.random() * 200 + 150;
+    this.opacity = Math.random() * 0.3 + 0.1;
+    this.drift = Math.random() * 0.3 - 0.15;
   }
 
   draw() {
@@ -474,8 +447,9 @@ class Nebula {
   }
 }
 
-const stars = Array(200).fill().map(() => new Star());
+const stars = Array(300).fill().map(() => new Star());  // තරු ගාණ වැඩි කළා
 const nebulas = Array(5).fill().map(() => new Nebula());
+const shootingStars = Array(3).fill().map(() => new ShootingStar());
 
 function animateSpace() {
   ctx.fillStyle = '#0a0e27';
@@ -491,24 +465,22 @@ function animateSpace() {
     star.draw();
   });
 
+  shootingStars.forEach(star => {
+    star.update();
+    star.draw();
+  });
+
   requestAnimationFrame(animateSpace);
 }
 
 animateSpace();
-
-// ============================================
-// WINDOW RESIZE HANDLER
-// ============================================
 
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
 
-// ============================================
-// SECURITY KEY GENERATION
-// ============================================
-
+// Security Key Generation
 function generateSecurityKey(name, birthYear) {
   let hash = 0;
   const str = name + birthYear;
@@ -520,7 +492,6 @@ function generateSecurityKey(name, birthYear) {
   }
 
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*_-+=';
-
   let key = '';
   let temp = Math.abs(hash);
 
@@ -532,10 +503,7 @@ function generateSecurityKey(name, birthYear) {
   return key;
 }
 
-// ============================================
-// FORM HANDLING
-// ============================================
-
+// Form Handling
 const keyForm = document.getElementById('keyForm');
 const nameInput = document.getElementById('name');
 const birthYearInput = document.getElementById('birthYear');
@@ -557,44 +525,23 @@ keyForm.addEventListener('submit', (e) => {
   const key = generateSecurityKey(name, birthYear);
   securityKeyDisplay.textContent = key;
   resultSection.style.display = 'block';
-
   resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
 
 copyBtn.addEventListener('click', () => {
   const key = securityKeyDisplay.textContent;
-
   navigator.clipboard.writeText(key).then(() => {
     const originalText = copyBtn.textContent;
     copyBtn.textContent = 'Copied! ✓';
-
     setTimeout(() => {
       copyBtn.textContent = originalText;
     }, 2000);
   }).catch(err => {
     console.error('Failed to copy:', err);
-    alert('Failed to copy to clipboard');
   });
 });
 
-// ============================================
-// ACCESSIBILITY ENHANCEMENTS
-// ============================================
-
-nameInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    birthYearInput.focus();
-  }
-});
-
-birthYearInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    keyForm.dispatchEvent(new Event('submit'));
-  }
-});
-
-console.log('🚀 Galactic Security Key Generator loaded successfully');
-console.log('ℹ️ Enter your name and birth year to generate your unique security key');
+console.log('🚀 Galactic Security Key Generator loaded');
 </script>
 
 </body>
